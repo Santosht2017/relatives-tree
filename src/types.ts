@@ -5,6 +5,7 @@ export type Mutable<T> = {
 export const enum Gender {
   male = 'male',
   female = 'female',
+  other = 'other',
 }
 
 export const enum RelType {
@@ -59,10 +60,10 @@ export type Relation = Readonly<{
 export type Node = Readonly<{
   id: string;
   gender: Gender;
-  parents: readonly Relation[];
-  children: readonly Relation[];
-  siblings: readonly Relation[];
-  spouses: readonly Relation[];
+  parents: Relation[];
+  children: Relation[];
+  siblings: Relation[];
+  spouses: Relation[];
   placeholder?: boolean;
 }>
 
@@ -70,6 +71,21 @@ export type ExtNode = Node & Readonly<{
   top: number;
   left: number;
   hasSubTree: boolean;
+  isDead?: boolean;
+  fullName?: string;
+  image?: string;
+  birthYear?: string;
+  deathYear?: string;
+  gharane?: string;
+  pidhi?: number;
+  fullNameM?: string;
+  gharaneM?: string;
+  maritalStatus?: string;
+  maritalStatusM?: string;
+  areaVillage?: string;
+  areaVillageM?: string;
+  cityDistrict?: string;
+  cityDistrictM?: string;
 }>
 
 export type Connector = readonly [x1: number, y1: number, x2: number, y2: number];
